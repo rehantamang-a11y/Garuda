@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Garuda/static/css/main.26e92e36.css",
-    "main.js": "/Garuda/static/js/main.78216f16.js",
+    "main.js": "/Garuda/static/js/main.6af98470.js",
     "index.html": "/Garuda/index.html",
     "main.26e92e36.css.map": "/Garuda/static/css/main.26e92e36.css.map",
-    "main.78216f16.js.map": "/Garuda/static/js/main.78216f16.js.map"
+    "main.6af98470.js.map": "/Garuda/static/js/main.6af98470.js.map"
   },
   "entrypoints": [
     "static/css/main.26e92e36.css",
-    "static/js/main.78216f16.js"
+    "static/js/main.6af98470.js"
   ]
 }
