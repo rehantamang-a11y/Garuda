@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Auditv2/static/css/main.26e92e36.css",
-    "main.js": "/Auditv2/static/js/main.67dbf88d.js",
+    "main.js": "/Auditv2/static/js/main.4eb51b25.js",
     "index.html": "/Auditv2/index.html",
     "main.26e92e36.css.map": "/Auditv2/static/css/main.26e92e36.css.map",
-    "main.67dbf88d.js.map": "/Auditv2/static/js/main.67dbf88d.js.map"
+    "main.4eb51b25.js.map": "/Auditv2/static/js/main.4eb51b25.js.map"
   },
   "entrypoints": [
     "static/css/main.26e92e36.css",
-    "static/js/main.67dbf88d.js"
+    "static/js/main.4eb51b25.js"
   ]
 }
