@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Garuda/static/css/main.26e92e36.css",
-    "main.js": "/Garuda/static/js/main.6af98470.js",
-    "index.html": "/Garuda/index.html",
-    "main.26e92e36.css.map": "/Garuda/static/css/main.26e92e36.css.map",
-    "main.6af98470.js.map": "/Garuda/static/js/main.6af98470.js.map"
+    "main.css": "/Auditv2/static/css/main.26e92e36.css",
+    "main.js": "/Auditv2/static/js/main.77b4c689.js",
+    "index.html": "/Auditv2/index.html",
+    "main.26e92e36.css.map": "/Auditv2/static/css/main.26e92e36.css.map",
+    "main.77b4c689.js.map": "/Auditv2/static/js/main.77b4c689.js.map"
   },
   "entrypoints": [
     "static/css/main.26e92e36.css",
-    "static/js/main.6af98470.js"
+    "static/js/main.77b4c689.js"
   ]
 }
