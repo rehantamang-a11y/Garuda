@@ -2,7 +2,8 @@
 .annotate-screen {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  /* Use --vh set by JS in index.js — fixes Android WebView 100vh bug */
+  height: calc(var(--vh, 1vh) * 100);
   background: #111;
   color: #fff;
 }
@@ -68,10 +69,13 @@
 /* Bottom bar */
 .annotate-bottombar {
   background: rgba(0,0,0,0.75);
-  padding: 10px var(--space-md) 28px;
+  padding: 10px var(--space-md);
+  /* Add safe-area inset so the bar clears the Android/iOS nav bar */
+  padding-bottom: max(28px, calc(env(safe-area-inset-bottom) + 10px));
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex-shrink: 0; /* never shrink — always visible at the bottom */
 }
 
 /* Tool buttons */
