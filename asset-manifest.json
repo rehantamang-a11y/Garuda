@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Garuda/static/css/main.d5434bd3.css",
-    "main.js": "/Garuda/static/js/main.59287d0a.js",
+    "main.css": "/Garuda/static/css/main.ae704b0d.css",
+    "main.js": "/Garuda/static/js/main.ca873799.js",
     "index.html": "/Garuda/index.html",
-    "main.d5434bd3.css.map": "/Garuda/static/css/main.d5434bd3.css.map",
-    "main.59287d0a.js.map": "/Garuda/static/js/main.59287d0a.js.map"
+    "main.ae704b0d.css.map": "/Garuda/static/css/main.ae704b0d.css.map",
+    "main.ca873799.js.map": "/Garuda/static/js/main.ca873799.js.map"
   },
   "entrypoints": [
-    "static/css/main.d5434bd3.css",
-    "static/js/main.59287d0a.js"
+    "static/css/main.ae704b0d.css",
+    "static/js/main.ca873799.js"
   ]
 }
