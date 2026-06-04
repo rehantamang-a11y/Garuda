@@ -108,6 +108,16 @@
   padding-bottom: 2px;
 }
 
+.audit-list-error {
+  padding: 12px;
+  background: var(--brand-light);
+  border: 1px solid var(--brand-mid);
+  border-radius: var(--radius);
+  color: var(--brand-dark);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 /* Audit card */
 .audit-card {
   width: 100%;

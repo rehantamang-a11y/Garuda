@@ -4,6 +4,22 @@ All changes to EyEagle v2 are documented here. Newest entries first.
 
 ---
 
+## [2026-06-04] — Surface Drive upload configuration failures
+
+**Agent:** Hermes_{Submission}
+
+**Files changed:**
+- src/services/sheetsService.js
+- src/screens/ReviewScreen/ReviewScreen.jsx
+- src/screens/AuditListScreen/AuditListScreen.jsx
+- src/screens/AuditListScreen/AuditListScreen.css
+- .env.example
+
+**What changed:**
+Fixed a silent failure path in the Google Sheets + Drive submission flow. The live GitHub Pages bundle did not contain a literal Apps Script `/exec` URL, which means `REACT_APP_APPS_SCRIPT_URL` was missing when the deployed app was built. Previously `submitToSheets()` returned early and ReviewScreen still marked the audit as submitted, making it look successful even though no photos or metadata were sent to Drive. The upload service now throws a clear configuration error when the Apps Script URL is missing or when the restricted `/a/macros/...` URL is used. ReviewScreen now stays on the review step and shows the upload error instead of marking the audit submitted. Resubmit failures are also surfaced on AuditListScreen. Added `REACT_APP_APPS_SCRIPT_URL` to `.env.example` so future deploys include the required Drive upload endpoint.
+
+---
+
 ## [2026-03-03] — Fix Drive photo labeling and bake annotations into submitted images
 
 **Agent:** Hermes_{Submission}

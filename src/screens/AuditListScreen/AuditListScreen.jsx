@@ -45,6 +45,7 @@ export default function AuditListScreen({ onNewAudit, onResumeAudit, onLogout })
     getAudits().filter(a => a.technicianName === user.name)
   );
   const [resubmittingId, setResubmittingId] = useState(null);
+  const [resubmitError, setResubmitError] = useState('');
 
   const drafts    = audits.filter(a => a.status === 'draft');
   const submitted = audits.filter(a => a.status === 'submitted');
@@ -62,6 +63,7 @@ export default function AuditListScreen({ onNewAudit, onResumeAudit, onLogout })
   const handleResubmit = async (audit, e) => {
     e.stopPropagation();
     setResubmittingId(audit.id);
+    setResubmitError('');
 
     const totalPhotos      = photoCount(audit.areaPhotos);
     const totalAnnotations = Object.values(audit.areaPhotos || {})
@@ -77,6 +79,7 @@ export default function AuditListScreen({ onNewAudit, onResumeAudit, onLogout })
       await submitToSheets(audit, { totalPhotos, totalAnnotations, areasSummary, commentsSummary });
     } catch (err) {
       console.warn('Resubmit to Sheets failed:', err);
+      setResubmitError(err.message || 'Resubmit failed. Check Drive upload configuration and try again.');
     }
 
     setResubmittingId(null);
@@ -159,6 +162,9 @@ export default function AuditListScreen({ onNewAudit, onResumeAudit, onLogout })
       {submitted.length > 0 && (
         <section className="audit-section">
           <h2 className="audit-section-title">Submitted</h2>
+          {resubmitError && (
+            <p className="audit-list-error" role="alert">{resubmitError}</p>
+          )}
           {submitted.map(audit => (
             <div key={audit.id} className="audit-card audit-card--submitted">
               <div className="audit-card-main">
