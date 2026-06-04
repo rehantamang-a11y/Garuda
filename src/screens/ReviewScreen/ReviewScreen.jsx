@@ -27,6 +27,7 @@ const BATHROOM_LABELS = {
 export default function ReviewScreen({ onBack, onSubmitSuccess }) {
   const { audit, totalPhotos, totalAnnotations, markSubmitted } = useAudit();
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState('');
 
   const today = new Date().toLocaleDateString('en-GB', {
     day: 'numeric', month: 'long', year: 'numeric',
@@ -41,8 +42,8 @@ export default function ReviewScreen({ onBack, onSubmitSuccess }) {
 
   const handleSubmit = async () => {
     setUploading(true);
+    setUploadError('');
 
-    // Non-blocking Sheets + Drive upload
     try {
       await submitToSheets(audit, {
         totalPhotos,
@@ -52,6 +53,9 @@ export default function ReviewScreen({ onBack, onSubmitSuccess }) {
       });
     } catch (err) {
       console.warn('Sheets upload failed:', err);
+      setUploadError(err.message || 'Upload failed. Please try again before marking this audit submitted.');
+      setUploading(false);
+      return;
     }
 
     setUploading(false);
@@ -122,6 +126,12 @@ export default function ReviewScreen({ onBack, onSubmitSuccess }) {
           );
         })}
       </section>
+
+      {uploadError && (
+        <div className="review-error" role="alert">
+          {uploadError}
+        </div>
+      )}
 
       {/* ── Submit ── */}
       <div className="review-submit-strip">

@@ -3,13 +3,23 @@ import { renderAnnotatedImage } from '../utils/imageUtils';
 
 const SCRIPT_URL = process.env.REACT_APP_APPS_SCRIPT_URL;
 
+function assertUploadConfigured() {
+  if (!SCRIPT_URL) {
+    throw new Error('Drive upload is not configured. Missing REACT_APP_APPS_SCRIPT_URL in the deployed build.');
+  }
+
+  if (SCRIPT_URL.includes('/a/macros/')) {
+    throw new Error('Drive upload is using a restricted Apps Script URL. Use the public /macros/s/.../exec deployment URL.');
+  }
+}
+
 /**
  * Submit a completed audit to Google Sheets + Drive via Apps Script.
  * @param {object} audit  — full audit object from AuditContext
  * @param {object} meta   — { totalPhotos, totalAnnotations, areasSummary, commentsSummary }
  */
 export async function submitToSheets(audit, meta) {
-  if (!SCRIPT_URL) return; // skip silently if not configured
+  assertUploadConfigured();
 
   // Flatten all photos into one array.
   // - areaLabel uses the human-readable label from areas.js (e.g. "Floor Surface")
